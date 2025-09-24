@@ -1,0 +1,36 @@
+.activeWrapper :global(.ant-tag-checkable-checked) {
+  background: #eaf1ff !important;
+  border: 1px solid #057cf2 !important;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #006aff;
+  line-height: 40px;
+  font-weight: 600;
+  text-align: center;
+  position: relative;
+}
+
+.activeWrapper :global(.ant-tag-checkable-checked)::after {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: 0;
+  /* transform: translateX(-50%); */
+  transform: rotate(-135deg);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #006aff;
+}
+
+.activeWrapper :global(.ant-tag) {
+  background: #ffffff;
+  border: 1px solid #cdd5e4;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #232426;
+  line-height: 40px;
+  font-weight: 600;
+  text-align: center;
+}
