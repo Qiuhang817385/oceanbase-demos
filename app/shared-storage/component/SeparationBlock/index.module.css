@@ -1,0 +1,51 @@
+.box {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  background-color: #ffffff;
+  /* // border: 1px solid #b3ccff; */
+  border: 1px solid #b3ccff;
+  border-radius: 4px;
+}
+
+.box::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  /* 调整内边框的位置 */
+  left: 0px;
+  bottom: 0px;
+  border: 1px solid #0181fd;
+  /* 内边框的颜色和宽度 */
+}
+
+/* 动画样式 */
+.animateToLeft {
+  animation: moveToLeft 2s ease-in-out forwards;
+}
+.animateToRight {
+  animation: moveToRight 2s ease-in-out forwards;
+}
+
+@keyframes moveToLeft {
+  0% {
+    left: calc(50% - 50px);
+    transform: translateX(-calc(50% - 50px));
+  }
+  100% {
+    left: calc(50% - 50px);
+    transform: translateX(calc(50% - 125px));
+  }
+}
+
+@keyframes moveToRight {
+  0% {
+    left: calc(50% - 50px);
+    transform: translateX(calc(50% - 125px));
+  }
+
+  100% {
+    left: calc(50% - 50px);
+    transform: translateX(-calc(50% - 50px));
+  }
+}
