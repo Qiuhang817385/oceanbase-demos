@@ -27,17 +27,16 @@ export default function Home() {
     }
   }, [])
 
-  const urlParams = new URLSearchParams(window.location.search)
-  const language = urlParams.get('language') || 'zh-CN'
+  const [language, setLanguage] = useState('zh-CN')
 
   useEffect(() => {
-    // 语言切换逻辑已移除
-  }, [language])
-
-  // 构建 iframe 的 URL，包含语言参数
-  const iframeUrl = `http://btt-3qlrblo54qm7qip2qhtss7z7xq.hon.alibaba-inc.com/shared-storage${
-    language ? `?language=${encodeURIComponent(language)}` : ''
-  }`
+    // 在客户端获取 URL 参数
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search)
+      const urlLanguage = urlParams.get('language') || 'zh-CN'
+      setLanguage(urlLanguage)
+    }
+  }, [])
 
   return (
     <>
