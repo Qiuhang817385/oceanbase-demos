@@ -115,33 +115,38 @@ export default function Main() {
     setSelectedTags(nextSelectedTags)
   }
 
-  register('interaction.customElementHighlight', () => {
-    return (context, _, emitter) => {
-      const { container } = context
-      const plotArea = container.querySelector(`.${PLOT_CLASS_NAME}`)
-      const elements = plotArea.querySelectorAll(`.${ELEMENT_CLASS_NAME}`)
-      const elementSet = new Set(elements)
+  useEffect(() => {
+    // 只在客户端注册交互
+    if (typeof window !== 'undefined') {
+      register('interaction.customElementHighlight', () => {
+        return (context, _, emitter) => {
+          const { container } = context
+          const plotArea = container.querySelector(`.${PLOT_CLASS_NAME}`)
+          const elements = plotArea.querySelectorAll(`.${ELEMENT_CLASS_NAME}`)
+          const elementSet = new Set(elements)
 
-      const pointerover = (e) => {
-        const { target: element } = e
-        if (!elementSet.has(element)) return
-        setShowText(true)
-      }
+          const pointerover = (e) => {
+            const { target: element } = e
+            if (!elementSet.has(element)) return
+            setShowText(true)
+          }
 
-      const pointerout = (e) => {
-        const { target: element } = e
-        if (!elementSet.has(element)) return
-        setShowText(false)
-      }
+          const pointerout = (e) => {
+            const { target: element } = e
+            if (!elementSet.has(element)) return
+            setShowText(false)
+          }
 
-      plotArea.addEventListener('pointerover', pointerover)
-      plotArea.addEventListener('pointerout', pointerout)
-      return () => {
-        plotArea.removeEventListener('pointerover', pointerover)
-        plotArea.removeEventListener('pointerout', pointerout)
-      }
+          plotArea.addEventListener('pointerover', pointerover)
+          plotArea.addEventListener('pointerout', pointerout)
+          return () => {
+            plotArea.removeEventListener('pointerover', pointerover)
+            plotArea.removeEventListener('pointerout', pointerout)
+          }
+        }
+      })
     }
-  })
+  }, [])
 
   // 新增 volume 到中文的映射表
   const VOLUME_LABEL_MAP: Record<string, string> = {
