@@ -1,7 +1,10 @@
 'use client'
 import { Line } from '@ant-design/plots'
+import { useTranslation } from 'react-i18next'
+import '@/lib/i18n/client-init'
 
 export default function Main() {
+  const { t } = useTranslation('translation')
   // 合并两个数据集，添加 type 字段来区分不同的折线
 
   const STORAGE_COMPUTE_UNIFIED = 'storageComputeUnified'
@@ -64,7 +67,11 @@ export default function Main() {
         label: false, // 隐藏 X 轴标签
         arrow: true,
         line: true,
-        title: '扩/缩容耗时',
+        title:
+          t('sharedStorage.operations.expand') +
+          '/' +
+          t('sharedStorage.operations.shrink') +
+          '耗时',
         gridFilter: (datum: any, index: number, data: any) => {
           return index % 2 === 0
         },
@@ -97,9 +104,9 @@ export default function Main() {
         label: true,
         labelFormatter: (text: string) => {
           if (text === STORAGE_COMPUTE_UNIFIED) {
-            return '存算一体'
+            return t('sharedStorage.architecture.integrated')
           } else if (text === STORAGE_COMPUTE_SEPARATE) {
-            return '存算分离'
+            return t('sharedStorage.architecture.separated')
           }
           return text
         },

@@ -1,10 +1,10 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import { Button, Col, Row, Space } from 'antd'
+import { useTranslation } from 'react-i18next'
 import Charts from '@/app/shared-storage/component/Charts'
 import { SwapOutlined, SyncOutlined } from '@ant-design/icons'
-// 移除国际化依赖，使用固定中文文本
-const isEnglish = () => false
+import '@/lib/i18n/client-init'
 
 export default function DescribeContainer({
   handleExpand,
@@ -25,6 +25,7 @@ export default function DescribeContainer({
   setRefreshTag: (refreshTag: boolean) => void
   refreshTag: boolean
 }) {
+  const { t } = useTranslation('translation')
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const [isAtPeak, setIsAtPeak] = useState(false)
@@ -83,12 +84,20 @@ export default function DescribeContainer({
           <Space
             size={16}
             style={{
-              fontSize: isEnglish() ? 12 : 16,
+              fontSize: t('language.english') === 'English' ? 12 : 16,
               color: '#132039',
             }}
           >
-            <div>{isUpScene ? '场景 1' : '场景 2'}</div>
-            <div>{isUpScene ? '负载上升' : '负载降低'}</div>
+            <div>
+              {isUpScene
+                ? t('sharedStorage.scenarios.scene1')
+                : t('sharedStorage.scenarios.scene2')}
+            </div>
+            <div>
+              {isUpScene
+                ? t('sharedStorage.scenarios.loadUp')
+                : t('sharedStorage.scenarios.loadDown')}
+            </div>
             <Space
               style={{
                 border: '1px solid #0181fd',
@@ -106,7 +115,7 @@ export default function DescribeContainer({
               }}
             >
               <SwapOutlined />
-              切换场景
+              {t('actions.switch')}
             </Space>
           </Space>
         </Col>
@@ -133,8 +142,8 @@ export default function DescribeContainer({
         >
           <Button
             style={{
-              fontSize: isEnglish() ? 12 : 16,
-              ...(isEnglish() && {
+              fontSize: t('language.english') === 'English' ? 12 : 16,
+              ...(t('language.english') === 'English' && {
                 maxWidth: 70,
               }),
             }}
@@ -149,7 +158,9 @@ export default function DescribeContainer({
             }}
             type="primary"
           >
-            {isUpScene ? '扩容' : '缩容'}
+            {isUpScene
+              ? t('sharedStorage.operations.expand')
+              : t('sharedStorage.operations.shrink')}
           </Button>
         </Col>
       </Row>

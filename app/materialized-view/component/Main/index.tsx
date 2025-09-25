@@ -1,11 +1,13 @@
 'use client'
 import { Row, Col, Card, Tag, Typography, Button } from 'antd'
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import styles from './index.module.css'
 import { Column, G2 } from '@ant-design/charts'
 import ReactMarkdown from 'react-markdown'
 import dynamic from 'next/dynamic'
 import { useMaterializedViewAnalytics } from '@/app/hooks/useAnalytics'
+import '@/lib/i18n/client-init'
 
 import {
   dataSource1,
@@ -70,28 +72,32 @@ const SQLRenderer = ({ sql, tomorrow }: { sql: string; tomorrow: any }) => {
   )
 }
 
-const DATA_LIST = [
-  {
-    label: '十万',
-    value: 'hundredThousand',
-  },
-  {
-    label: '百万',
-    value: 'million',
-  },
-  {
-    label: '千万',
-    value: 'tenMillion',
-  },
-  {
-    label: '亿',
-    value: 'hundredMillion',
-  },
-]
+// 数据量选项将在组件内部使用 t() 函数动态生成
 
 export default function Main() {
+  const { t } = useTranslation('translation')
   const { trackUserInteraction, trackBusinessMetric } =
     useMaterializedViewAnalytics()
+
+  // 动态生成数据量选项
+  const DATA_LIST = [
+    {
+      label: t('materializedView.dataVolume.hundredThousand'),
+      value: 'hundredThousand',
+    },
+    {
+      label: t('materializedView.dataVolume.million'),
+      value: 'million',
+    },
+    {
+      label: t('materializedView.dataVolume.tenMillion'),
+      value: 'tenMillion',
+    },
+    {
+      label: t('materializedView.dataVolume.hundredMillion'),
+      value: 'hundredMillion',
+    },
+  ]
 
   const [selectedTags, setSelectedTags] = useState<string[]>(
     DATA_LIST.map((item) => item.value)
@@ -150,17 +156,25 @@ export default function Main() {
 
   // 新增 volume 到中文的映射表
   const VOLUME_LABEL_MAP: Record<string, string> = {
-    hundredThousand: 'MV 数据量: 十万',
-    million: 'MV 数据量: 百万',
-    tenMillion: 'MV 数据量: 千万',
-    hundredMillion: 'MV 数据量: 亿',
+    hundredThousand: `${t('materializedView.dataVolume.title')}: ${t(
+      'materializedView.dataVolume.hundredThousand'
+    )}`,
+    million: `${t('materializedView.dataVolume.title')}: ${t(
+      'materializedView.dataVolume.million'
+    )}`,
+    tenMillion: `${t('materializedView.dataVolume.title')}: ${t(
+      'materializedView.dataVolume.tenMillion'
+    )}`,
+    hundredMillion: `${t('materializedView.dataVolume.title')}: ${t(
+      'materializedView.dataVolume.hundredMillion'
+    )}`,
   }
 
   // 英文 type 到中文的映射表
   const TYPE_LABEL_MAP: Record<string, string> = {
-    TimeDirectMV: '查物化视图',
-    TimeMVPlusTable: '查物化视图+表',
-    TimeWithoutMV: '不使用物化视图',
+    TimeDirectMV: t('materializedView.analysis.queryMV'),
+    TimeMVPlusTable: t('materializedView.analysis.queryMVPlusTable'),
+    TimeWithoutMV: t('materializedView.analysis.queryWithoutMV'),
   }
 
   const data1 = dataSource1
@@ -274,13 +288,13 @@ export default function Main() {
     yField: 'value',
     style: {
       fill: ({ type }: { type: string }) => {
-        if (type === '查物化视图') {
+        if (type === t('materializedView.analysis.queryMV')) {
           return '#057cf2'
         }
-        if (type === '查物化视图+表') {
+        if (type === t('materializedView.analysis.queryMVPlusTable')) {
           return '#20ca97'
         }
-        if (type === '不使用物化视图') {
+        if (type === t('materializedView.analysis.queryWithoutMV')) {
           return '#f5a517'
         }
       },
@@ -297,15 +311,15 @@ export default function Main() {
       <Card
         tabList={[
           {
-            tab: '两表连接（MKV）',
+            tab: t('materializedView.tabs.join'),
             key: 'mkv',
           },
           {
-            tab: '单表聚合 (MAV)',
+            tab: t('materializedView.tabs.aggregation'),
             key: 'mav',
           },
           {
-            tab: '连接加聚合',
+            tab: t('materializedView.tabs.joinAggregation'),
             key: 'makv',
           },
         ]}
@@ -319,7 +333,7 @@ export default function Main() {
         <Row gutter={[16, 16]}>
           <Col span={24}>
             <Card
-              title="MV 数据量"
+              title={t('materializedView.dataVolume.title')}
               headStyle={{ borderBottom: 'none' }}
               bodyStyle={{
                 paddingTop: 0,
@@ -354,7 +368,7 @@ export default function Main() {
           </Col>
           <Col span={24}>
             <Card
-              title="分析结果"
+              title={t('materializedView.analysis.title')}
               headStyle={{ borderBottom: 'none' }}
               bodyStyle={{
                 paddingTop: 0,
@@ -365,7 +379,7 @@ export default function Main() {
           </Col>
           <Col span={24} className={styles.uploadWrapper}>
             <Card
-              title="SQL 内容"
+              title={t('materializedView.sql.title')}
               headStyle={{ borderBottom: 'none' }}
               bodyStyle={{
                 paddingTop: 0,
@@ -427,7 +441,9 @@ export default function Main() {
               </div>
               <div style={{ textAlign: 'center', marginTop: 8 }}>
                 <a onClick={() => setExpanded(!expanded)}>
-                  {expanded ? '收起 ▲' : '展开 ▼'}
+                  {expanded
+                    ? `${t('actions.collapse')} ▲`
+                    : `${t('actions.expand')} ▼`}
                 </a>
               </div>
             </Card>

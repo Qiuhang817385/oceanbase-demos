@@ -4,11 +4,27 @@ import Overview from '@/app/shared-storage/component/Overview/index'
 import { Tabs } from 'antd'
 import { useState, useRef, useEffect } from 'react'
 import { GoogleAnalytics } from '@next/third-parties/google'
+import { useTranslation } from 'react-i18next'
+import '@/lib/i18n/client-init'
 
-export default function Home() {
+export default function SharedStoragePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { t, i18n } = useTranslation('translation')
   const [activeTab, setActiveTab] = useState('overview')
   const [elementWidth, setElementWidth] = useState(0)
   const elementRef = useRef<HTMLDivElement>(null)
+
+  // 同步 URL 中的语言与 i18n 实例
+  useEffect(() => {
+    params.then(({ locale: paramLocale }) => {
+      if (i18n.language !== paramLocale) {
+        i18n.changeLanguage(paramLocale)
+      }
+    })
+  }, [params, i18n])
 
   // 监听元素宽度变化
   useEffect(() => {
@@ -24,17 +40,6 @@ export default function Home() {
 
     return () => {
       window.removeEventListener('resize', updateWidth)
-    }
-  }, [])
-
-  const [language, setLanguage] = useState('zh-CN')
-
-  useEffect(() => {
-    // 在客户端获取 URL 参数
-    if (typeof window !== 'undefined') {
-      const urlParams = new URLSearchParams(window.location.search)
-      const urlLanguage = urlParams.get('language') || 'zh-CN'
-      setLanguage(urlLanguage)
     }
   }, [])
 
@@ -60,7 +65,7 @@ export default function Home() {
                         }),
                       }}
                     >
-                      大存储业务场景降本
+                      {t('sharedStorage.tabs.overview')}
                     </div>
                   </>
                 ),
@@ -81,7 +86,7 @@ export default function Home() {
                         }),
                       }}
                     >
-                      扩缩容提速
+                      {t('sharedStorage.tabs.main')}
                     </div>
                   </>
                 ),

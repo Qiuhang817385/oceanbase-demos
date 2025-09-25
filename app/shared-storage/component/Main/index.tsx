@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect, useRef } from 'react'
 import { Card, Col, Flex, Row, Space, Tag } from 'antd'
+import { useTranslation } from 'react-i18next'
 import Cloud from '../Cloud'
 import DescribeContainer from '../DescribeContainer'
 import { CheckCircleFilled, ClockCircleOutlined } from '@ant-design/icons'
@@ -11,11 +12,10 @@ import DemoDown from '../DownBlock'
 import SeparationBlock from '../SeparationBlock'
 import ConnectionLines from '../ConnectionLines'
 import CapacityCount from '../CapacityCount'
-// 使用 SVG 的 path 元素绘制连线
-// 移除国际化依赖，使用固定中文文本
-const isEnglish = () => false
+import '@/lib/i18n/client-init'
 
 export default function Main() {
+  const { t } = useTranslation('translation')
   // 是否是扩容场景
   const [isUpScene, setIsUpScene] = useState(true)
 
@@ -182,7 +182,7 @@ export default function Main() {
                 'linear-gradient(to right, rgb(255,255,255), rgb(205, 152, 70))',
             }}
           >
-            存算一体
+            {t('sharedStorage.architecture.integrated')}
           </div>
           <div
             style={{
@@ -212,7 +212,7 @@ export default function Main() {
               paddingLeft: 50,
             }}
           >
-            存算分离
+            {t('sharedStorage.architecture.separated')}
           </div>
         </div>
         <Flex
@@ -293,7 +293,8 @@ export default function Main() {
                         />
                       </span>
                       <span className="text-14px text-[#132039]  font-medium">
-                        添加主机（用时 1 分钟）
+                        {t('sharedStorage.operations.addHost')}（
+                        {t('sharedStorage.time.oneMinute')}）
                       </span>
                     </Space>
                   </Col>
@@ -309,7 +310,8 @@ export default function Main() {
                         />
                       </span>
                       <span className="text-14px text-[#132039]  font-medium">
-                        减少主机（用时 1 分钟）
+                        {t('sharedStorage.operations.removeHost')}（
+                        {t('sharedStorage.time.oneMinute')}）
                       </span>
                     </Space>
                   </Col>
@@ -326,7 +328,8 @@ export default function Main() {
                         />
                       </span>
                       <span className="text-14px text-[#132039]  font-medium">
-                        数据均衡（用时 10 小时）
+                        {t('sharedStorage.operations.dataBalance')}（
+                        {t('sharedStorage.time.tenHours')}）
                       </span>
                     </Space>
                   </Col>
@@ -343,7 +346,8 @@ export default function Main() {
                         />
                       </span>
                       <span className="text-14px text-[#132039]  font-medium">
-                        数据均衡（用时 10 小时）
+                        {t('sharedStorage.operations.dataBalance')}（
+                        {t('sharedStorage.time.tenHours')}）
                       </span>
                     </Space>
                   </Col>
@@ -360,7 +364,8 @@ export default function Main() {
                         />
                       </span>
                       <span className="text-14px text-[#132039]  font-medium">
-                        已完成（用时 10 小时）
+                        {t('sharedStorage.operations.completed')}（
+                        {t('sharedStorage.time.tenHours')}）
                       </span>
                     </Space>
                   </Col>
@@ -376,7 +381,8 @@ export default function Main() {
                         />
                       </span>
                       <span className="text-14px text-[#132039]  font-medium">
-                        已完成（用时 10 小时）
+                        {t('sharedStorage.operations.completed')}（
+                        {t('sharedStorage.time.tenHours')}）
                       </span>
                     </Space>
                   </Col>
@@ -470,7 +476,8 @@ export default function Main() {
                         />
                       </span>
                       <span className="text-14px text-[#132039]  font-medium">
-                        添加主机（用时 1 分钟）
+                        {t('sharedStorage.operations.addHost')}（
+                        {t('sharedStorage.time.oneMinute')}）
                       </span>
                     </Space>
                   </Col>
@@ -487,7 +494,8 @@ export default function Main() {
                         />
                       </span>
                       <span className="text-14px text-[#132039]  font-medium">
-                        减少主机（用时 1 分钟）
+                        {t('sharedStorage.operations.removeHost')}（
+                        {t('sharedStorage.time.oneMinute')}）
                       </span>
                     </Space>
                   </Col>
@@ -504,7 +512,8 @@ export default function Main() {
                         />
                       </span>
                       <span className="text-14px text-[#132039]  font-medium">
-                        加载元数据（用时 1 分钟）
+                        {t('sharedStorage.operations.loadMetadata')}（
+                        {t('sharedStorage.time.oneMinute')}）
                       </span>
                     </Space>
                   </Col>
@@ -521,7 +530,8 @@ export default function Main() {
                         />
                       </span>
                       <span className="text-14px text-[#132039]  font-medium">
-                        加载元数据（用时 1 分钟）
+                        {t('sharedStorage.operations.loadMetadata')}（
+                        {t('sharedStorage.time.oneMinute')}）
                       </span>
                     </Space>
                   </Col>
@@ -538,9 +548,12 @@ export default function Main() {
                         />
                       </span>
                       <span className="text-14px text-[#132039]  font-medium">
-                        已完成（用时 1 分钟）
+                        {t('sharedStorage.operations.completed')}（
+                        {t('sharedStorage.time.oneMinute')}）
                       </span>
-                      <Tag style={{ color: '#0ac185' }}>🎉 用时更短</Tag>
+                      <Tag style={{ color: '#0ac185' }}>
+                        {t('sharedStorage.time.faster')}
+                      </Tag>
                     </Space>
                   </Col>
                 )}
@@ -556,9 +569,12 @@ export default function Main() {
                         />
                       </span>
                       <span className="text-14px text-[#132039]  font-medium">
-                        已完成（用时 1 分钟）
+                        {t('sharedStorage.operations.completed')}（
+                        {t('sharedStorage.time.oneMinute')}）
                       </span>
-                      <Tag style={{ color: '#0ac185' }}>🎉 用时更短</Tag>
+                      <Tag style={{ color: '#0ac185' }}>
+                        {t('sharedStorage.time.faster')}
+                      </Tag>
                     </Space>
                   </Col>
                 )}
@@ -571,12 +587,10 @@ export default function Main() {
           <div
             className={`${styles.box} flex justify-center items-center gap-16 p-6`}
             style={{
-              fontSize: isEnglish() ? 12 : 20,
+              fontSize: t('language.english') === 'English' ? 12 : 20,
             }}
           >
-            <div>
-              负载变化较大时，存算分离架构扩缩容无需拷贝数据，弹性更快速
-            </div>
+            <div>{t('sharedStorage.description')}</div>
             <div>
               <ResultChart />
             </div>

@@ -1,10 +1,12 @@
 'use client'
 import { useState, useEffect, useRef } from 'react'
 import { Alert, Card, Col, Flex, Row, Space, Tooltip } from 'antd'
+import { useTranslation } from 'react-i18next'
 import { StorageCube, CalculateStorageCube } from '../Storage'
 import Cloud from '../Cloud'
 import { InfoCircleOutlined } from '@ant-design/icons'
 import styles from './index.module.css'
+import '@/lib/i18n/client-init'
 
 // 使用 SVG 的 path 元素绘制连线
 const ConnectionLines = ({
@@ -138,6 +140,7 @@ const Demo2 = () => {
 }
 
 export default function Main() {
+  const { t } = useTranslation('translation')
   const containerRef = useRef<HTMLDivElement>(null)
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 })
 
@@ -177,8 +180,8 @@ export default function Main() {
             fontWeight: 700,
           }}
         >
-          <span>存算一体</span>
-          <span>存算分离</span>
+          <span>{t('sharedStorage.architecture.integrated')}</span>
+          <span>{t('sharedStorage.architecture.separated')}</span>
         </div>
         <Flex
           flex={1}
@@ -195,7 +198,7 @@ export default function Main() {
                       fontWeight: 700,
                     }}
                   >
-                    3 副本 ESSD PL1云盘
+                    {t('sharedStorage.storage.replica')}
                   </div>
                   <div
                     style={{
@@ -204,9 +207,9 @@ export default function Main() {
                     }}
                   >
                     <Space>
-                      <span>￥3/GB/月</span>
+                      <span>{t('sharedStorage.storage.price1')}</span>
                       <span>
-                        <Tooltip title="阿里云商品目录价，仅供参考">
+                        <Tooltip title={t('sharedStorage.cost.priceNote')}>
                           <InfoCircleOutlined style={{ fontSize: 13 }} />
                         </Tooltip>
                       </span>
@@ -248,7 +251,7 @@ export default function Main() {
                       fontWeight: 700,
                     }}
                   >
-                    单副本 ESSD PL1 缓存 + 对象存储
+                    {t('sharedStorage.storage.singleReplica')}
                   </div>
                   <div
                     style={{
@@ -257,9 +260,9 @@ export default function Main() {
                     }}
                   >
                     <Space>
-                      <span>￥0.8/GB/月</span>
+                      <span>{t('sharedStorage.storage.price2')}</span>
                       <span>
-                        <Tooltip title="阿里云商品目录价，仅供参考">
+                        <Tooltip title={t('sharedStorage.cost.priceNote')}>
                           <InfoCircleOutlined style={{ fontSize: 13 }} />
                         </Tooltip>
                       </span>
@@ -326,9 +329,9 @@ export default function Main() {
             className={`${styles.box} flex justify-start items-center pl-[36px]`}
           >
             <span style={{ fontSize: 20 }}>
-              计算成本降至
-              <span className="font-bold">{' 1/3'}</span>
-              ，存储成本下降
+              {t('sharedStorage.cost.reduced')}
+              <span className="font-bold">{' 1/3'}</span>，
+              {t('sharedStorage.cost.storageReduced')}
               <span className="font-bold">{' 60%~70%'}</span>
             </span>
           </div>

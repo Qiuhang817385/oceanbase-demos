@@ -1,0 +1,104 @@
+{
+  "app": {
+    "title": "OceanBase Feature Demo",
+    "description": "Select a feature module below to start exploring"
+  },
+  "navigation": {
+    "home": "Home",
+    "materializedView": "Materialized View",
+    "sharedStorage": "Shared Storage"
+  },
+  "language": {
+    "switch": "Switch Language",
+    "chinese": "Chinese",
+    "english": "English",
+    "select": "Please select language"
+  },
+  "actions": {
+    "clickToEnter": "Click to enter",
+    "expand": "Expand",
+    "collapse": "Collapse",
+    "switch": "Switch Scenario"
+  },
+  "home": {
+    "cards": {
+      "materializedView": {
+        "title": "Materialized View",
+        "description": "OceanBase Materialized View Feature Demo"
+      },
+      "sharedStorage": {
+        "title": "Shared Storage",
+        "description": "OceanBase Shared Storage Feature Demo"
+      }
+    }
+  },
+  "materializedView": {
+    "title": "Materialized View Demo",
+    "description": "Showcase the powerful features of OceanBase Materialized View",
+    "dataVolume": {
+      "title": "MV Data Volume",
+      "hundredThousand": "100K",
+      "million": "1M",
+      "tenMillion": "10M",
+      "hundredMillion": "100M"
+    },
+    "analysis": {
+      "title": "Analysis Results",
+      "queryMV": "Query MV",
+      "queryMVPlusTable": "Query MV + Table",
+      "queryWithoutMV": "Query Without MV"
+    },
+    "sql": {
+      "title": "SQL Content"
+    },
+    "tabs": {
+      "join": "Table Join (MKV)",
+      "aggregation": "Single Table Aggregation (MAV)",
+      "joinAggregation": "Join + Aggregation"
+    }
+  },
+  "sharedStorage": {
+    "title": "Shared Storage Demo",
+    "description": "Showcase the powerful features of OceanBase Shared Storage",
+    "tabs": {
+      "overview": "Large Storage Business Scenario Cost Reduction",
+      "main": "Scale Up/Down Acceleration"
+    },
+    "architecture": {
+      "integrated": "Storage-Compute Integration",
+      "separated": "Storage-Compute Separation"
+    },
+    "scenarios": {
+      "scene1": "Scenario 1",
+      "scene2": "Scenario 2",
+      "loadUp": "Load Increase",
+      "loadDown": "Load Decrease"
+    },
+    "operations": {
+      "expand": "Scale Up",
+      "shrink": "Scale Down",
+      "addHost": "Add Host",
+      "removeHost": "Remove Host",
+      "dataBalance": "Data Balancing",
+      "loadMetadata": "Load Metadata",
+      "completed": "Completed"
+    },
+    "time": {
+      "oneMinute": "1 minute",
+      "tenHours": "10 hours",
+      "faster": "🎉 Faster"
+    },
+    "cost": {
+      "reduced": "Compute cost reduced to",
+      "storageReduced": "Storage cost decreased",
+      "priceNote": "Alibaba Cloud catalog price, for reference only"
+    },
+    "storage": {
+      "replica": "3-replica ESSD PL1 cloud disk",
+      "singleReplica": "Single-replica ESSD PL1 cache + object storage",
+      "price1": "$3/GB/month",
+      "price2": "$0.8/GB/month"
+    },
+    "description": "When load changes significantly, storage-compute separation architecture scales without data copying, providing faster elasticity"
+  }
+}

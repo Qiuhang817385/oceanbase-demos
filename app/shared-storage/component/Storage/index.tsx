@@ -1,9 +1,9 @@
 import Rectangular from '@/app/shared-storage/component/Cube/rectangular'
 import Cylinder from '@/app/shared-storage/component/Cube/cylinder'
 import React, { useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useSize } from '@/app/shared-storage/component/Storage/hooks/size'
-// 移除国际化依赖，使用固定中文文本
-const isEnglish = () => false
+import '@/lib/i18n/client-init'
 
 interface IProps {
   percent?: number
@@ -16,6 +16,7 @@ export const StorageCube = ({
   color,
   backgroundColor,
 }: IProps) => {
+  const { t } = useTranslation('translation')
   const containerRef = useRef<HTMLDivElement>(null)
   const { height, width } = useSize('oinstance', 'core', containerRef)
 
@@ -40,11 +41,11 @@ export const StorageCube = ({
         text={{
           style: {
             fill: '#fff',
-            fontSize: isEnglish() ? 10 : 12,
+            fontSize: t('language.english') === 'English' ? 10 : 12,
           },
           offset: { x: 0, y: 10 },
         }}
-        replacePercentText="存储"
+        replacePercentText={t('sharedStorage.architecture.integrated')}
       />
 
       <div style={{ fontSize: 10 }}>{percent}T</div>
@@ -57,6 +58,7 @@ export const CalculateStorageCube = ({
   color,
   backgroundColor,
 }: IProps) => {
+  const { t } = useTranslation('translation')
   const containerRef = useRef<HTMLDivElement>(null)
   const { height, width } = useSize('oinstance', 'core', containerRef)
 
@@ -80,9 +82,12 @@ export const CalculateStorageCube = ({
         color={color || '#cb933e'}
         backgroundColor={backgroundColor || '#f9e6b7'}
         text={{
-          style: { fill: '#fff', fontSize: isEnglish() ? 10 : 14 },
+          style: {
+            fill: '#fff',
+            fontSize: t('language.english') === 'English' ? 10 : 14,
+          },
         }}
-        replacePercentText="计算"
+        replacePercentText={t('sharedStorage.architecture.separated')}
       />
     </div>
   )
