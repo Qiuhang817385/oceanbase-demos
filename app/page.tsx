@@ -31,7 +31,7 @@ export default function Home() {
   }
 
   const [language, setLanguage] = useState(
-    window.localStorage.getItem('language') || 'zh-CN'
+    localStorage.getItem('language') || 'zh-CN'
   )
 
   return (
@@ -41,7 +41,7 @@ export default function Home() {
           value={language}
           onChange={(value) => {
             // window.location.reload()
-            window.localStorage.setItem('language', value)
+            localStorage.setItem('language', value)
             setLanguage(value)
           }}
           placeholder="请选择语言"
