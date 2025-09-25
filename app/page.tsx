@@ -30,9 +30,8 @@ export default function Home() {
     router.push(`/${routeId}`)
   }
 
-  const [language, setLanguage] = useState(
-    localStorage.getItem('language') || 'zh-CN'
-  )
+  const [language, setLanguage] = useState('zh-CN')
+  // localStorage.getItem('language') || 'zh-CN'
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#f5f9ff] via-[#f5f9ff] to-[#f8fbff00] p-8">
@@ -41,7 +40,7 @@ export default function Home() {
           value={language}
           onChange={(value) => {
             // window.location.reload()
-            localStorage.setItem('language', value)
+            // localStorage.setItem('language', value)
             setLanguage(value)
           }}
           placeholder="请选择语言"
