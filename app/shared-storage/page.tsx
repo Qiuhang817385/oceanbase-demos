@@ -4,7 +4,6 @@ import Overview from '@/app/shared-storage/component/Overview/index'
 import { Tabs } from 'antd'
 import { useState, useRef, useEffect } from 'react'
 import { GoogleAnalytics } from '@next/third-parties/google'
-import $i18n from '../../i18n'
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('overview')
@@ -32,9 +31,7 @@ export default function Home() {
   const language = urlParams.get('language') || 'zh-CN'
 
   useEffect(() => {
-    if (language) {
-      $i18n.changeLocale(language)
-    }
+    // 语言切换逻辑已移除
   }, [language])
 
   // 构建 iframe 的 URL，包含语言参数
@@ -64,10 +61,7 @@ export default function Home() {
                         }),
                       }}
                     >
-                      {$i18n.get({
-                        id: 'oceanbase-demo.app.shared-storage.page.LargeStorageBusinessScenarioCost',
-                        dm: '大存储业务场景降本',
-                      })}
+                      大存储业务场景降本
                     </div>
                   </>
                 ),
@@ -88,10 +82,7 @@ export default function Home() {
                         }),
                       }}
                     >
-                      {$i18n.get({
-                        id: 'oceanbase-demo.app.shared-storage.page.CapacityExpansionAndContractionSpeed',
-                        dm: '扩缩容提速',
-                      })}
+                      扩缩容提速
                     </div>
                   </>
                 ),

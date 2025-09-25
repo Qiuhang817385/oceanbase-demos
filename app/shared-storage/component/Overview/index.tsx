@@ -7,7 +7,6 @@ import { InfoCircleOutlined } from '@ant-design/icons'
 import styles from './index.module.css'
 
 // 使用 SVG 的 path 元素绘制连线
-import $i18n from '../../../../i18n'
 const ConnectionLines = ({
   containerSize,
 }: {
@@ -178,18 +177,8 @@ export default function Main() {
             fontWeight: 700,
           }}
         >
-          <span>
-            {$i18n.get({
-              id: 'oceanbase-demo.component.Overview.StorageAndCalculationIntegration',
-              dm: '存算一体',
-            })}
-          </span>
-          <span>
-            {$i18n.get({
-              id: 'oceanbase-demo.component.Overview.StorageAndCalculationSeparation',
-              dm: '存算分离',
-            })}
-          </span>
+          <span>存算一体</span>
+          <span>存算分离</span>
         </div>
         <Flex
           flex={1}
@@ -206,10 +195,7 @@ export default function Main() {
                       fontWeight: 700,
                     }}
                   >
-                    {$i18n.get({
-                      id: 'oceanbase-demo.component.Overview.EssdPlCloudDisk',
-                      dm: '3 副本 ESSD PL1云盘',
-                    })}
+                    3 副本 ESSD PL1云盘
                   </div>
                   <div
                     style={{
@@ -218,19 +204,9 @@ export default function Main() {
                     }}
                   >
                     <Space>
+                      <span>￥3/GB/月</span>
                       <span>
-                        {$i18n.get({
-                          id: 'oceanbase-demo.component.Overview.GbMonth',
-                          dm: '￥3/GB/月',
-                        })}
-                      </span>
-                      <span>
-                        <Tooltip
-                          title={$i18n.get({
-                            id: 'oceanbase-demo.component.Overview.AliyunCommodityCatalogPriceFor',
-                            dm: '阿里云商品目录价，仅供参考',
-                          })}
-                        >
+                        <Tooltip title="阿里云商品目录价，仅供参考">
                           <InfoCircleOutlined style={{ fontSize: 13 }} />
                         </Tooltip>
                       </span>
@@ -272,10 +248,7 @@ export default function Main() {
                       fontWeight: 700,
                     }}
                   >
-                    {$i18n.get({
-                      id: 'oceanbase-demo.component.Overview.SingleCopyEssdPlCache',
-                      dm: '单副本 ESSD PL1 缓存 + 对象存储',
-                    })}
+                    单副本 ESSD PL1 缓存 + 对象存储
                   </div>
                   <div
                     style={{
@@ -284,19 +257,9 @@ export default function Main() {
                     }}
                   >
                     <Space>
+                      <span>￥0.8/GB/月</span>
                       <span>
-                        {$i18n.get({
-                          id: 'oceanbase-demo.component.Overview.GbMonth.1',
-                          dm: '￥0.8/GB/月',
-                        })}
-                      </span>
-                      <span>
-                        <Tooltip
-                          title={$i18n.get({
-                            id: 'oceanbase-demo.component.Overview.AliyunCommodityCatalogPriceFor',
-                            dm: '阿里云商品目录价，仅供参考',
-                          })}
-                        >
+                        <Tooltip title="阿里云商品目录价，仅供参考">
                           <InfoCircleOutlined style={{ fontSize: 13 }} />
                         </Tooltip>
                       </span>
@@ -363,15 +326,9 @@ export default function Main() {
             className={`${styles.box} flex justify-start items-center pl-[36px]`}
           >
             <span style={{ fontSize: 20 }}>
-              {$i18n.get({
-                id: 'oceanbase-demo.component.Overview.CalculatingCostsDown',
-                dm: '计算成本降至',
-              })}
+              计算成本降至
               <span className="font-bold">{' 1/3'}</span>
-              {$i18n.get({
-                id: 'oceanbase-demo.component.Overview.StorageCostsAreReduced',
-                dm: '，存储成本下降',
-              })}
+              ，存储成本下降
               <span className="font-bold">{' 60%~70%'}</span>
             </span>
           </div>

@@ -3,7 +3,8 @@ import { useEffect, useRef, useState } from 'react'
 import { Button, Col, Row, Space } from 'antd'
 import Charts from '@/app/shared-storage/component/Charts'
 import { SwapOutlined, SyncOutlined } from '@ant-design/icons'
-import $i18n, { isEnglish } from '../../../../i18n'
+// 移除国际化依赖，使用固定中文文本
+const isEnglish = () => false
 
 export default function DescribeContainer({
   handleExpand,
@@ -86,28 +87,8 @@ export default function DescribeContainer({
               color: '#132039',
             }}
           >
-            <div>
-              {isUpScene
-                ? $i18n.get({
-                    id: 'oceanbase-demo.component.DescribeContainer.Scenario',
-                    dm: '场景 1',
-                  })
-                : $i18n.get({
-                    id: 'oceanbase-demo.component.DescribeContainer.Scene',
-                    dm: '场景 2',
-                  })}
-            </div>
-            <div>
-              {isUpScene
-                ? $i18n.get({
-                    id: 'oceanbase-demo.component.DescribeContainer.LoadRise',
-                    dm: '负载上升',
-                  })
-                : $i18n.get({
-                    id: 'oceanbase-demo.component.DescribeContainer.LoadReduction',
-                    dm: '负载降低',
-                  })}
-            </div>
+            <div>{isUpScene ? '场景 1' : '场景 2'}</div>
+            <div>{isUpScene ? '负载上升' : '负载降低'}</div>
             <Space
               style={{
                 border: '1px solid #0181fd',
@@ -125,10 +106,7 @@ export default function DescribeContainer({
               }}
             >
               <SwapOutlined />
-              {$i18n.get({
-                id: 'oceanbase-demo.component.DescribeContainer.SwitchScenarios',
-                dm: '切换场景',
-              })}
+              切换场景
             </Space>
           </Space>
         </Col>
@@ -171,15 +149,7 @@ export default function DescribeContainer({
             }}
             type="primary"
           >
-            {isUpScene
-              ? $i18n.get({
-                  id: 'oceanbase-demo.component.DescribeContainer.Expansion',
-                  dm: '扩容',
-                })
-              : $i18n.get({
-                  id: 'oceanbase-demo.component.DescribeContainer.Shrinkage',
-                  dm: '缩容',
-                })}
+            {isUpScene ? '扩容' : '缩容'}
           </Button>
         </Col>
       </Row>

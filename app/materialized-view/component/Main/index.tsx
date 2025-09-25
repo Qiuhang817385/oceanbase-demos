@@ -17,7 +17,6 @@ import {
 } from '@/app/materialized-view/constant'
 
 import { CopyOutlined } from '@ant-design/icons'
-import $i18n from '../../../../i18n'
 const { CheckableTag } = Tag
 const { Text } = Typography
 
@@ -73,28 +72,19 @@ const SQLRenderer = ({ sql, tomorrow }: { sql: string; tomorrow: any }) => {
 
 const DATA_LIST = [
   {
-    label: $i18n.get({
-      id: 'oceanbase-demo.component.Main.OneHundredThousand',
-      dm: '十万',
-    }),
+    label: '十万',
     value: 'hundredThousand',
   },
   {
-    label: $i18n.get({
-      id: 'oceanbase-demo.component.Main.Millions',
-      dm: '百万',
-    }),
+    label: '百万',
     value: 'million',
   },
   {
-    label: $i18n.get({
-      id: 'oceanbase-demo.component.Main.TenMillion',
-      dm: '千万',
-    }),
+    label: '千万',
     value: 'tenMillion',
   },
   {
-    label: $i18n.get({ id: 'oceanbase-demo.component.Main.Billion', dm: '亿' }),
+    label: '亿',
     value: 'hundredMillion',
   },
 ]
@@ -155,38 +145,17 @@ export default function Main() {
 
   // 新增 volume 到中文的映射表
   const VOLUME_LABEL_MAP: Record<string, string> = {
-    hundredThousand: $i18n.get({
-      id: 'oceanbase-demo.component.Main.MvDataVolume',
-      dm: 'MV 数据量: 十万',
-    }),
-    million: $i18n.get({
-      id: 'oceanbase-demo.component.Main.MvDataVolumeMillions',
-      dm: 'MV 数据量: 百万',
-    }),
-    tenMillion: $i18n.get({
-      id: 'oceanbase-demo.component.Main.MvDataVolumeTensOf',
-      dm: 'MV 数据量: 千万',
-    }),
-    hundredMillion: $i18n.get({
-      id: 'oceanbase-demo.component.Main.MvDataVolumeBillion',
-      dm: 'MV 数据量: 亿',
-    }),
+    hundredThousand: 'MV 数据量: 十万',
+    million: 'MV 数据量: 百万',
+    tenMillion: 'MV 数据量: 千万',
+    hundredMillion: 'MV 数据量: 亿',
   }
 
   // 英文 type 到中文的映射表
   const TYPE_LABEL_MAP: Record<string, string> = {
-    TimeDirectMV: $i18n.get({
-      id: 'oceanbase-demo.component.Main.ViewMaterializedViews',
-      dm: '查物化视图',
-    }),
-    TimeMVPlusTable: $i18n.get({
-      id: 'oceanbase-demo.component.Main.CheckTheMaterializedVisualChart',
-      dm: '查物化视图+表',
-    }),
-    TimeWithoutMV: $i18n.get({
-      id: 'oceanbase-demo.component.Main.NotUsingMaterializedViews',
-      dm: '不使用物化视图',
-    }),
+    TimeDirectMV: '查物化视图',
+    TimeMVPlusTable: '查物化视图+表',
+    TimeWithoutMV: '不使用物化视图',
   }
 
   const data1 = dataSource1
@@ -300,31 +269,13 @@ export default function Main() {
     yField: 'value',
     style: {
       fill: ({ type }: { type: string }) => {
-        if (
-          type ===
-          $i18n.get({
-            id: 'oceanbase-demo.component.Main.ViewMaterializedViews',
-            dm: '查物化视图',
-          })
-        ) {
+        if (type === '查物化视图') {
           return '#057cf2'
         }
-        if (
-          type ===
-          $i18n.get({
-            id: 'oceanbase-demo.component.Main.CheckTheMaterializedVisualChart',
-            dm: '查物化视图+表',
-          })
-        ) {
+        if (type === '查物化视图+表') {
           return '#20ca97'
         }
-        if (
-          type ===
-          $i18n.get({
-            id: 'oceanbase-demo.component.Main.NotUsingMaterializedViews',
-            dm: '不使用物化视图',
-          })
-        ) {
+        if (type === '不使用物化视图') {
           return '#f5a517'
         }
       },
@@ -341,24 +292,15 @@ export default function Main() {
       <Card
         tabList={[
           {
-            tab: $i18n.get({
-              id: 'oceanbase-demo.component.Main.TwoTableJoinMkv',
-              dm: '两表连接（MKV）',
-            }),
+            tab: '两表连接（MKV）',
             key: 'mkv',
           },
           {
-            tab: $i18n.get({
-              id: 'oceanbase-demo.component.Main.SingleTableAggregationMav',
-              dm: '单表聚合 (MAV)',
-            }),
+            tab: '单表聚合 (MAV)',
             key: 'mav',
           },
           {
-            tab: $i18n.get({
-              id: 'oceanbase-demo.component.Main.ConnectionPlusAggregation',
-              dm: '连接加聚合',
-            }),
+            tab: '连接加聚合',
             key: 'makv',
           },
         ]}
@@ -372,10 +314,7 @@ export default function Main() {
         <Row gutter={[16, 16]}>
           <Col span={24}>
             <Card
-              title={$i18n.get({
-                id: 'oceanbase-demo.component.Main.MvDataVolume.1',
-                dm: 'MV 数据量',
-              })}
+              title="MV 数据量"
               headStyle={{ borderBottom: 'none' }}
               bodyStyle={{
                 paddingTop: 0,
@@ -410,10 +349,7 @@ export default function Main() {
           </Col>
           <Col span={24}>
             <Card
-              title={$i18n.get({
-                id: 'oceanbase-demo.component.Main.AnalysisResults',
-                dm: '分析结果',
-              })}
+              title="分析结果"
               headStyle={{ borderBottom: 'none' }}
               bodyStyle={{
                 paddingTop: 0,
@@ -424,10 +360,7 @@ export default function Main() {
           </Col>
           <Col span={24} className={styles.uploadWrapper}>
             <Card
-              title={$i18n.get({
-                id: 'oceanbase-demo.component.Main.SqlContent',
-                dm: 'SQL 内容',
-              })}
+              title="SQL 内容"
               headStyle={{ borderBottom: 'none' }}
               bodyStyle={{
                 paddingTop: 0,
@@ -489,15 +422,7 @@ export default function Main() {
               </div>
               <div style={{ textAlign: 'center', marginTop: 8 }}>
                 <a onClick={() => setExpanded(!expanded)}>
-                  {expanded
-                    ? $i18n.get({
-                        id: 'oceanbase-demo.component.Main.PutItAway',
-                        dm: '收起 ▲',
-                      })
-                    : $i18n.get({
-                        id: 'oceanbase-demo.component.Main.Expand',
-                        dm: '展开 ▼',
-                      })}
+                  {expanded ? '收起 ▲' : '展开 ▼'}
                 </a>
               </div>
             </Card>

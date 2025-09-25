@@ -12,7 +12,8 @@ import SeparationBlock from '../SeparationBlock'
 import ConnectionLines from '../ConnectionLines'
 import CapacityCount from '../CapacityCount'
 // 使用 SVG 的 path 元素绘制连线
-import $i18n, { isEnglish } from '../../../../i18n'
+// 移除国际化依赖，使用固定中文文本
+const isEnglish = () => false
 
 export default function Main() {
   // 是否是扩容场景
@@ -181,10 +182,7 @@ export default function Main() {
                 'linear-gradient(to right, rgb(255,255,255), rgb(205, 152, 70))',
             }}
           >
-            {$i18n.get({
-              id: 'oceanbase-demo.component.Main.StorageAndCalculationIntegration',
-              dm: '存算一体',
-            })}
+            存算一体
           </div>
           <div
             style={{
@@ -214,10 +212,7 @@ export default function Main() {
               paddingLeft: 50,
             }}
           >
-            {$i18n.get({
-              id: 'oceanbase-demo.component.Main.StorageAndCalculationSeparation',
-              dm: '存算分离',
-            })}
+            存算分离
           </div>
         </div>
         <Flex
@@ -298,10 +293,7 @@ export default function Main() {
                         />
                       </span>
                       <span className="text-14px text-[#132039]  font-medium">
-                        {$i18n.get({
-                          id: 'oceanbase-demo.component.Main.AddHostTakesMinute',
-                          dm: '添加主机（用时 1 分钟）',
-                        })}
+                        添加主机（用时 1 分钟）
                       </span>
                     </Space>
                   </Col>
@@ -317,10 +309,7 @@ export default function Main() {
                         />
                       </span>
                       <span className="text-14px text-[#132039]  font-medium">
-                        {$i18n.get({
-                          id: 'oceanbase-demo.component.Main.ReduceHostMinute',
-                          dm: '减少主机（用时 1 分钟）',
-                        })}
+                        减少主机（用时 1 分钟）
                       </span>
                     </Space>
                   </Col>
@@ -337,10 +326,7 @@ export default function Main() {
                         />
                       </span>
                       <span className="text-14px text-[#132039]  font-medium">
-                        {$i18n.get({
-                          id: 'oceanbase-demo.component.Main.DataEqualizationHours',
-                          dm: '数据均衡（用时 10 小时）',
-                        })}
+                        数据均衡（用时 10 小时）
                       </span>
                     </Space>
                   </Col>
@@ -357,10 +343,7 @@ export default function Main() {
                         />
                       </span>
                       <span className="text-14px text-[#132039]  font-medium">
-                        {$i18n.get({
-                          id: 'oceanbase-demo.component.Main.DataEqualizationHours',
-                          dm: '数据均衡（用时 10 小时）',
-                        })}
+                        数据均衡（用时 10 小时）
                       </span>
                     </Space>
                   </Col>
@@ -377,10 +360,7 @@ export default function Main() {
                         />
                       </span>
                       <span className="text-14px text-[#132039]  font-medium">
-                        {$i18n.get({
-                          id: 'oceanbase-demo.component.Main.CompletedTakesHours',
-                          dm: '已完成（用时 10 小时）',
-                        })}
+                        已完成（用时 10 小时）
                       </span>
                     </Space>
                   </Col>
@@ -396,10 +376,7 @@ export default function Main() {
                         />
                       </span>
                       <span className="text-14px text-[#132039]  font-medium">
-                        {$i18n.get({
-                          id: 'oceanbase-demo.component.Main.CompletedTakesHours',
-                          dm: '已完成（用时 10 小时）',
-                        })}
+                        已完成（用时 10 小时）
                       </span>
                     </Space>
                   </Col>
@@ -493,10 +470,7 @@ export default function Main() {
                         />
                       </span>
                       <span className="text-14px text-[#132039]  font-medium">
-                        {$i18n.get({
-                          id: 'oceanbase-demo.component.Main.AddHostTakesMinute',
-                          dm: '添加主机（用时 1 分钟）',
-                        })}
+                        添加主机（用时 1 分钟）
                       </span>
                     </Space>
                   </Col>
@@ -513,10 +487,7 @@ export default function Main() {
                         />
                       </span>
                       <span className="text-14px text-[#132039]  font-medium">
-                        {$i18n.get({
-                          id: 'oceanbase-demo.component.Main.ReduceHostMinute',
-                          dm: '减少主机（用时 1 分钟）',
-                        })}
+                        减少主机（用时 1 分钟）
                       </span>
                     </Space>
                   </Col>
@@ -533,10 +504,7 @@ export default function Main() {
                         />
                       </span>
                       <span className="text-14px text-[#132039]  font-medium">
-                        {$i18n.get({
-                          id: 'oceanbase-demo.component.Main.LoadingMetadataTakesMinute',
-                          dm: '加载元数据（用时 1 分钟）',
-                        })}
+                        加载元数据（用时 1 分钟）
                       </span>
                     </Space>
                   </Col>
@@ -553,10 +521,7 @@ export default function Main() {
                         />
                       </span>
                       <span className="text-14px text-[#132039]  font-medium">
-                        {$i18n.get({
-                          id: 'oceanbase-demo.component.Main.LoadingMetadataTakesMinute',
-                          dm: '加载元数据（用时 1 分钟）',
-                        })}
+                        加载元数据（用时 1 分钟）
                       </span>
                     </Space>
                   </Col>
@@ -573,17 +538,9 @@ export default function Main() {
                         />
                       </span>
                       <span className="text-14px text-[#132039]  font-medium">
-                        {$i18n.get({
-                          id: 'oceanbase-demo.component.Main.CompletedMinute',
-                          dm: '已完成（用时 1 分钟）',
-                        })}
+                        已完成（用时 1 分钟）
                       </span>
-                      <Tag style={{ color: '#0ac185' }}>
-                        {$i18n.get({
-                          id: 'oceanbase-demo.component.Main.ShorterTime',
-                          dm: '🎉 用时更短',
-                        })}
-                      </Tag>
+                      <Tag style={{ color: '#0ac185' }}>🎉 用时更短</Tag>
                     </Space>
                   </Col>
                 )}
@@ -599,17 +556,9 @@ export default function Main() {
                         />
                       </span>
                       <span className="text-14px text-[#132039]  font-medium">
-                        {$i18n.get({
-                          id: 'oceanbase-demo.component.Main.CompletedMinute',
-                          dm: '已完成（用时 1 分钟）',
-                        })}
+                        已完成（用时 1 分钟）
                       </span>
-                      <Tag style={{ color: '#0ac185' }}>
-                        {$i18n.get({
-                          id: 'oceanbase-demo.component.Main.ShorterTime',
-                          dm: '🎉 用时更短',
-                        })}
-                      </Tag>
+                      <Tag style={{ color: '#0ac185' }}>🎉 用时更短</Tag>
                     </Space>
                   </Col>
                 )}
@@ -626,10 +575,7 @@ export default function Main() {
             }}
           >
             <div>
-              {$i18n.get({
-                id: 'oceanbase-demo.component.Main.WhenTheLoadChangesGreatly',
-                dm: '负载变化较大时，存算分离架构扩缩容无需拷贝数据，弹性更快速',
-              })}
+              负载变化较大时，存算分离架构扩缩容无需拷贝数据，弹性更快速
             </div>
             <div>
               <ResultChart />

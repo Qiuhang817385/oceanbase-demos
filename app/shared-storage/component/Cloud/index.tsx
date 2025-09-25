@@ -2,7 +2,8 @@
 import { Flex } from 'antd'
 import { useEffect, useState } from 'react'
 import styles from './index.module.css'
-import $i18n, { isEnglish } from '../../../../i18n'
+// 移除国际化依赖，使用固定中文文本
+const isEnglish = () => false
 
 const Cloud = ({
   startExpand,
@@ -148,11 +149,8 @@ const Cloud = ({
                     fontWeight="normal"
                     fill="#FFFFFF"
                   >
-                    <tspan x={`${isEnglish() ? '35' : '46'}`} y="56">
-                      {$i18n.get({
-                        id: 'oceanbase-demo.component.Storage.Storage',
-                        dm: '存储',
-                      })}
+                    <tspan x="46" y="56">
+                      存储
                     </tspan>
                   </text>
                 </g>

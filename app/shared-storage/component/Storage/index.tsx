@@ -2,7 +2,8 @@ import Rectangular from '@/app/shared-storage/component/Cube/rectangular'
 import Cylinder from '@/app/shared-storage/component/Cube/cylinder'
 import React, { useRef } from 'react'
 import { useSize } from '@/app/shared-storage/component/Storage/hooks/size'
-import $i18n, { isEnglish } from '../../../../i18n'
+// 移除国际化依赖，使用固定中文文本
+const isEnglish = () => false
 
 interface IProps {
   percent?: number
@@ -43,10 +44,7 @@ export const StorageCube = ({
           },
           offset: { x: 0, y: 10 },
         }}
-        replacePercentText={$i18n.get({
-          id: 'oceanbase-demo.component.Storage.Storage',
-          dm: '存储',
-        })}
+        replacePercentText="存储"
       />
 
       <div style={{ fontSize: 10 }}>{percent}T</div>
@@ -84,10 +82,7 @@ export const CalculateStorageCube = ({
         text={{
           style: { fill: '#fff', fontSize: isEnglish() ? 10 : 14 },
         }}
-        replacePercentText={$i18n.get({
-          id: 'oceanbase-demo.component.Storage.Calculation',
-          dm: '计算',
-        })}
+        replacePercentText="计算"
       />
     </div>
   )

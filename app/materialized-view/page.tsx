@@ -3,16 +3,13 @@
 import Main from '@/app/materialized-view/component/Main/index'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { useEffect } from 'react'
-import $i18n from '../../i18n'
 
 export default function Home() {
   const urlParams = new URLSearchParams(window.location.search)
   const language = urlParams.get('language') || 'zh-CN'
 
   useEffect(() => {
-    if (language) {
-      $i18n.changeLocale(language)
-    }
+    // 语言切换逻辑已移除
   }, [language])
 
   return (

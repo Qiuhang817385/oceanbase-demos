@@ -1,7 +1,6 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import $i18n from '../i18n'
 import { Select } from 'antd'
 import { useState } from 'react'
 
@@ -11,28 +10,16 @@ export default function Home() {
   const cards = [
     {
       id: 'materialized-view',
-      title: $i18n.get({
-        id: 'oceanbase-demo.app.page.MaterializedView',
-        dm: '物化视图',
-      }),
-      description: $i18n.get({
-        id: 'oceanbase-demo.app.page.OceanbaseMaterializedViewFeatureDemo',
-        dm: 'OceanBase 物化视图功能演示',
-      }),
+      title: '物化视图',
+      description: 'OceanBase 物化视图功能演示',
       bgColor: 'bg-gradient-to-br from-blue-500 to-purple-600',
       hoverColor: 'hover:from-blue-600 hover:to-purple-700',
       icon: '📊',
     },
     {
       id: 'shared-storage',
-      title: $i18n.get({
-        id: 'oceanbase-demo.app.page.SharedStorage',
-        dm: '共享存储',
-      }),
-      description: $i18n.get({
-        id: 'oceanbase-demo.app.page.OceanbaseSharedStorageFeatureDemo',
-        dm: 'OceanBase 共享存储功能演示',
-      }),
+      title: '共享存储',
+      description: 'OceanBase 共享存储功能演示',
       bgColor: 'bg-gradient-to-br from-green-500 to-teal-600',
       hoverColor: 'hover:from-green-600 hover:to-teal-700',
       icon: '💾',
@@ -53,7 +40,6 @@ export default function Home() {
         <Select
           value={language}
           onChange={(value) => {
-            $i18n.changeLocale(value)
             // window.location.reload()
             window.localStorage.setItem('language', value)
             setLanguage(value)
@@ -68,17 +54,9 @@ export default function Home() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-800 mb-4">
-            {$i18n.get({
-              id: 'oceanbase-demo.app.page.OceanbaseFunctionDemonstration',
-              dm: 'OceanBase 功能演示',
-            })}
+            OceanBase 功能演示
           </h1>
-          <p className="text-lg text-gray-600">
-            {$i18n.get({
-              id: 'oceanbase-demo.app.page.SelectTheFunctionModuleBelow',
-              dm: '选择下面的功能模块开始体验',
-            })}
-          </p>
+          <p className="text-lg text-gray-600">选择下面的功能模块开始体验</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -102,12 +80,7 @@ export default function Home() {
                 {card.description}
               </p>
               <div className="mt-6 flex items-center text-white/80">
-                <span className="text-sm">
-                  {$i18n.get({
-                    id: 'oceanbase-demo.app.page.ClickToEnter',
-                    dm: '点击进入',
-                  })}
-                </span>
+                <span className="text-sm">点击进入</span>
                 <svg
                   className="w-4 h-4 ml-2 transform transition-transform group-hover:translate-x-1"
                   fill="none"
