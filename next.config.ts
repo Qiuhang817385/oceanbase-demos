@@ -9,10 +9,10 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/static' : '',
-  env: {
-    ASSET_PREFIX: process.env.NODE_ENV === 'production' ? '/static' : '',
-  },
+  // assetPrefix: process.env.NODE_ENV === 'production' ? '/static' : '',
+  // env: {
+  //   ASSET_PREFIX: process.env.NODE_ENV === 'production' ? '/static' : '',
+  // },
 }
 
 export default nextConfig
