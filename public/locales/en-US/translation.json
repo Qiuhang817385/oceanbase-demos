@@ -16,9 +16,9 @@
   },
   "actions": {
     "clickToEnter": "Click to enter",
-    "expand": "Expand",
-    "collapse": "Collapse",
-    "switch": "Switch Scenario"
+    "expand": "Show ▼",
+    "collapse": "Hide ▲",
+    "switch": "Switch Scenarios"
   },
   "home": {
     "cards": {
@@ -37,24 +37,24 @@
     "description": "Showcase the powerful features of OceanBase Materialized View",
     "dataVolume": {
       "title": "MV Data Volume",
-      "hundredThousand": "100K",
-      "million": "1M",
-      "tenMillion": "10M",
-      "hundredMillion": "100M"
+      "hundredThousand": "One hundred thousand",
+      "million": "Millions",
+      "tenMillion": "Ten million",
+      "hundredMillion": "billion"
     },
     "analysis": {
       "title": "Analysis Results",
-      "queryMV": "Query MV",
-      "queryMVPlusTable": "Query MV + Table",
-      "queryWithoutMV": "Query Without MV"
+      "queryMV": "View materialized views",
+      "queryMVPlusTable": "Check the materialized visual chart",
+      "queryWithoutMV": "Not using materialized views"
     },
     "sql": {
       "title": "SQL Content"
     },
     "tabs": {
-      "join": "Table Join (MKV)",
+      "join": "Two table join (MKV)",
       "aggregation": "Single Table Aggregation (MAV)",
-      "joinAggregation": "Join + Aggregation"
+      "joinAggregation": "Connection plus aggregation"
     }
   },
   "sharedStorage": {
@@ -65,40 +65,40 @@
       "main": "Scale Up/Down Acceleration"
     },
     "architecture": {
-      "integrated": "Storage-Compute Integration",
-      "separated": "Storage-Compute Separation"
+      "integrated": "Unified Storage & Compute",
+      "separated": "Separated Storage & Compute"
     },
     "scenarios": {
       "scene1": "Scenario 1",
       "scene2": "Scenario 2",
-      "loadUp": "Load Increase",
-      "loadDown": "Load Decrease"
+      "loadUp": "Load rise",
+      "loadDown": "Load reduction"
     },
     "operations": {
-      "expand": "Scale Up",
-      "shrink": "Scale Down",
-      "addHost": "Add Host",
-      "removeHost": "Remove Host",
-      "dataBalance": "Data Balancing",
-      "loadMetadata": "Load Metadata",
-      "completed": "Completed"
+      "expand": "Expansion",
+      "shrink": "Shrinkage",
+      "addHost": "Add host (takes 1 minute)",
+      "removeHost": "Reduce host (1 minute)",
+      "dataBalance": "Data equalization (10 hours)",
+      "loadMetadata": "Loading metadata (takes 1 minute)",
+      "completed": "Completed (1 minute)"
     },
     "time": {
       "oneMinute": "1 minute",
       "tenHours": "10 hours",
-      "faster": "🎉 Faster"
+      "faster": "🎉  shorter time"
     },
     "cost": {
-      "reduced": "Compute cost reduced to",
-      "storageReduced": "Storage cost decreased",
-      "priceNote": "Alibaba Cloud catalog price, for reference only"
+      "reduced": "Calculating costs down",
+      "storageReduced": ", storage costs drop",
+      "priceNote": "Aliyun commodity catalog price, for reference only"
     },
     "storage": {
-      "replica": "3-replica ESSD PL1 cloud disk",
-      "singleReplica": "Single-replica ESSD PL1 cache + object storage",
-      "price1": "$3/GB/month",
-      "price2": "$0.8/GB/month"
+      "replica": "3 ESSD PL1 Cloud Disk",
+      "singleReplica": "Single Copy ESSD PL1 Cache Object Storage",
+      "price1": "3/GB/month",
+      "price2": "￥0.8/GB/month"
     },
-    "description": "When load changes significantly, storage-compute separation architecture scales without data copying, providing faster elasticity"
+    "descriptionText": "When load changes significantly, storage-compute separation architecture scales without data copying, providing faster elasticity"
   }
 }
