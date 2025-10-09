@@ -66,7 +66,9 @@
     },
     "architecture": {
       "integrated": "存算一体",
-      "separated": "存算分离"
+      "storage": "存储",
+      "separated": "存算分离",
+      "calculate": "计算"
     },
     "scenarios": {
       "scene1": "场景 1",

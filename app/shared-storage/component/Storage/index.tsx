@@ -45,7 +45,7 @@ export const StorageCube = ({
           },
           offset: { x: 0, y: 10 },
         }}
-        replacePercentText={t('sharedStorage.architecture.integrated')}
+        replacePercentText={t('sharedStorage.architecture.storage')}
       />
 
       <div style={{ fontSize: 10 }}>{percent}T</div>
@@ -87,7 +87,7 @@ export const CalculateStorageCube = ({
             fontSize: t('language.english') === 'English' ? 10 : 14,
           },
         }}
-        replacePercentText={t('sharedStorage.architecture.separated')}
+        replacePercentText={t('sharedStorage.architecture.calculate')}
       />
     </div>
   )

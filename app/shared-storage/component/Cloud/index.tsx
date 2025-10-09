@@ -2,6 +2,7 @@
 import { Flex } from 'antd'
 import { useEffect, useState } from 'react'
 import styles from './index.module.css'
+import { t } from 'i18next'
 // 移除国际化依赖，使用固定中文文本
 const isEnglish = () => false
 
@@ -149,8 +150,11 @@ const Cloud = ({
                     fontWeight="normal"
                     fill="#FFFFFF"
                   >
-                    <tspan x="46" y="56">
-                      存储
+                    <tspan
+                      x={`${t('language.english') === 'English' ? '35' : '46'}`}
+                      y="56"
+                    >
+                      {t('sharedStorage.architecture.storage')}
                     </tspan>
                   </text>
                 </g>
