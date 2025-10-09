@@ -45,7 +45,7 @@ export default function HomePage({
   ]
 
   const handleCardClick = (routeId: string) => {
-    router.push(`/${routeId}`)
+    router.push(`/${locale}/${routeId}`)
   }
 
   return (
