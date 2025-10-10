@@ -36,16 +36,16 @@
     "title": "物化视图演示",
     "description": "展示 OceanBase 物化视图的强大功能",
     "dataVolume": {
-      "title": "MV 数据量",
-      "hundredThousand": "十万",
-      "million": "百万",
-      "tenMillion": "千万",
-      "hundredMillion": "亿"
+      "title": "物化视图数据量",
+      "hundredThousand": "十万行",
+      "million": "百万行",
+      "tenMillion": "千万行",
+      "hundredMillion": "亿行"
     },
     "analysis": {
-      "title": "分析结果",
-      "queryMV": "查物化视图",
-      "queryMVPlusTable": "查物化视图+表",
+      "title": "查询耗时",
+      "queryMV": "使用物化视图",
+      "queryMVPlusTable": "使用物化视图并回表查数据",
       "queryWithoutMV": "不使用物化视图"
     },
     "sql": {

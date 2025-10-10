@@ -36,16 +36,16 @@
     "title": "Materialized View Demo",
     "description": "Showcase the powerful features of OceanBase Materialized View",
     "dataVolume": {
-      "title": "MV Data Volume",
-      "hundredThousand": "One hundred thousand",
-      "million": "Millions",
-      "tenMillion": "Ten million",
-      "hundredMillion": "billion"
+      "title": "Materialized View Data Volume",
+      "hundredThousand": "One hundred thousand rows",
+      "million": "Millions of rows",
+      "tenMillion": "Tens of millions of rows",
+      "hundredMillion": "Hundreds of millions of rows"
     },
     "analysis": {
-      "title": "Analysis Results",
-      "queryMV": "View materialized views",
-      "queryMVPlusTable": "Check the materialized visual chart",
+      "title": "Query Performance",
+      "queryMV": "Using materialized views",
+      "queryMVPlusTable": "Using materialized views with table lookup",
       "queryWithoutMV": "Not using materialized views"
     },
     "sql": {
