@@ -661,32 +661,10 @@ function Frame4() {
   );
 }
 
-function Component01Button() {
-  return (
-    <div
-      className="bg-[#f3f6fc] h-[40px] relative rounded-[6px] shrink-0 w-full cursor-not-allowed"
-      data-name="01-按钮Button"
-    >
-      <div
-        aria-hidden="true"
-        className="absolute border border-[#cdd5e4] border-solid inset-0 pointer-events-none rounded-[6px]"
-      />
-      <div className="flex flex-row items-center justify-center size-full">
-        <div className="box-border content-stretch flex gap-[8px] h-[40px] items-center justify-center px-[16px] py-[5px] relative w-full">
-          <p className="font-['PingFang_SC:Regular',sans-serif] leading-[22px] not-italic relative shrink-0 text-[#c1cbe0] text-[14px] text-nowrap whitespace-pre">
-            切换为主实例
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function Frame11() {
   return (
     <div className="absolute content-stretch flex flex-col gap-[16px] items-center left-[308px] top-[560px] w-[116px]">
       <Frame4 />
-      <Component01Button />
     </div>
   );
 }
