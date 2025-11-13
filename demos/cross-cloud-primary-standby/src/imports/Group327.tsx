@@ -1,8 +1,5 @@
 import svgPaths from "./svg-xw2vo6fjyr";
 
-/**
- * @figmaAssetKey 01e40526622c475a5ce45aa6763aeee026226e35
- */
 function Component({ className }: { className?: string }) {
   return (
     <div className={className} data-name="备实例">
