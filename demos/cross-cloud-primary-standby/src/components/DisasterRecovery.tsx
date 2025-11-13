@@ -5,7 +5,6 @@ import Group332 from "../imports/Group332";
 import Group333 from "../imports/Group333";
 import Group334 from "../imports/Group334";
 import Group338 from "../imports/Group338";
-import Group339 from "../imports/Group339";
 import Group340 from "../imports/Group340";
 import RegionFailure from "./RegionFailure";
 
@@ -119,7 +118,7 @@ export default function DisasterRecovery() {
       return;
     }
 
-    // 状态6: 点击"创建跨云主备库"按钮 → 状态5（Group339）
+    // 状态6: 点击"创建跨云主备库"按钮 → 状态5（Group329）
     if (state === "state6" && buttonId === "vendor-state6-button1") {
       console.log("容灾切换 - 云厂商 - State6 → State5 (创建跨云主备库)");
       setState("state5");
@@ -212,7 +211,7 @@ export default function DisasterRecovery() {
                 {state === "state3" && <Group332 />}
                 {state === "state3-alt" && <Group338 />}
                 {state === "state4" && <Group333 />}
-                {state === "state5" && <Group339 />}
+                {state === "state5" && <Group334 />}
                 {state === "state6" && <Group340 />}
               </div>
             </div>
